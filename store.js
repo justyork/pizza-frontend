@@ -23,6 +23,7 @@ let store = {
             } else {
                 axios.put('/api/cart/add', {id:item.id})
                     .then(response => {
+                        item.count = 1
                         state.cart.push(item);
                         state.cartCount++;
                         state.totalPrice += parseInt(item.price)
@@ -92,7 +93,6 @@ let store = {
                     state.cart = [];
                     state.cartCount = 0;
                     state.totalPrice = 0;
-                    state.sendedOrder = true;
                     this.commit('cartMessage', 'Your order was sent')
                 });
         },
