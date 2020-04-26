@@ -25,7 +25,7 @@ let store = {
                     .then(response => {
                         state.cart.push(item);
                         state.cartCount++;
-                        state.totalPrice += item.price
+                        state.totalPrice += parseInt(item.price)
                     });
             }
         },
@@ -42,7 +42,7 @@ let store = {
             state.cart = items
             state.cartCount = items.length
             items.forEach(function (item) {
-                state.totalPrice += item.price * item.count
+                state.totalPrice += (item.price * item.count)
             })
         },
         increase(state, item) {
