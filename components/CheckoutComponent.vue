@@ -74,7 +74,7 @@
         computed: {
             deliveryPrice() {
                 let delivery = this.$store.state.cartDelivery;
-                if (this.$store.state.totalPrice > delivery.free_from)
+                if (this.$store.state.totalPrice >= delivery.free_from)
                     return 0;
 
                 return delivery.price;
@@ -96,9 +96,10 @@
             send() {
                 let that = this;
                 this.startSending = true;
+
                 // just to show process :)
                 setTimeout(function () {
-                    this.startSending = false;
+                    that.startSending = false;
                     that.$store.commit('sendOrder');
                 }, 2000);
             }
