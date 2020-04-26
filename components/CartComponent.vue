@@ -23,7 +23,7 @@
 
                     <hr>
                 </div>
-                <span class="cart__price cart__price-total">{{totalPrice}}</span>
+                <span class="cart__price cart__price-total">{{usd(cartPrice)}}</span>
                 <button class="btn btn-small cart__checkout" @click="$store.commit('checkout')">Make order</button>
             </div>
         </div>
@@ -45,8 +45,8 @@
             cartCount() {
                 return this.$store.state.cartCount ? ' | ' + this.$store.state.cartCount : ''
             },
-            totalPrice() {
-                return this.usd(this.$store.state.totalPrice / 100);
+            cartPrice() {
+                return this.$store.state.totalPrice / 100;
             }
         },
         methods: {
