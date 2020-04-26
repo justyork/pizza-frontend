@@ -99,8 +99,8 @@
 
                 // just to show process :)
                 setTimeout(function () {
-                    that.startSending = false;
                     that.$store.commit('sendOrder');
+                    that.startSending = false;
                 }, 2000);
             }
         }
